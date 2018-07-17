@@ -3,14 +3,22 @@ package org.sid.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+@Entity  // mapping objet relationnel 
 public class Contact implements  Serializable {
+	@Id  @GeneratedValue //  id generé automatiquement 
 		private long id ;
 		private String nom;
 		private String prenom;
+		@Temporal(TemporalType.DATE) // pour formater le format de date 
 		private Date dateDeNaissance ; 
 		private String email; 
 		private long tel;
-		private String photos;
+		private String photos; 
 		public long getId() {
 			return id;
 		}
@@ -53,10 +61,9 @@ public class Contact implements  Serializable {
 		public void setPhotos(String photos) {
 			this.photos = photos;
 		}
-		public Contact(long id, String nom, String prenom, Date dateDeNaissance, String email, long tel,
-				String photos) {
+	                                                                                                                                                                                                               
+		public Contact(String nom, String prenom, Date dateDeNaissance, String email, long tel, String photos) {
 			super();
-			this.id = id;
 			this.nom = nom;
 			this.prenom = prenom;
 			this.dateDeNaissance = dateDeNaissance;
